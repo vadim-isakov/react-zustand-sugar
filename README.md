@@ -1,6 +1,6 @@
 # react-zustand-sugar – Cut Down ReactJS Re-renders with No Hassle
 
-> This library is syntactic sugar around [zustand](https://github.com/pmndrs/zustand), helping you effortlessly avoid unnecessary re-renders.
+> This library is syntactic sugar around zustand, helping you effortlessly avoid unnecessary re-renders.
 
 ## Install
 This library requires the following packages to be installed:
@@ -24,7 +24,6 @@ In the examples below, we update child components from the parent without re-ren
 import { create } from 'react-zustand-sugar';
 
 const store = create({book: 0, toys: 0});
-
 
 export default function Parent() {
   store.useResetOnUnmount();
@@ -69,7 +68,7 @@ export default function Parent() {
     <button onClick={() => store.books.current += 1}>Add book</button>
     <Books/>
     <button onClick={
-      () => store.games.useCurrent(v => v.educational.programming += 1)
+      () => store.games.setCurrent(v => v.educational.programming += 1)
     }>Add programming games"</button>
     <Toys/>
   </div>
