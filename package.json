@@ -1,0 +1,79 @@
+{
+  "name": "react-zustand-sugar",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "jest --env=jsdom",
+    "test:coverage": "jest --env=jsdom --coverage --coverageReporters='text'",
+    "test:coverage:save": "jest --env=jsdom --coverage --coverageDirectory='coverage'",
+    "lint": "xo",
+    "build": "tsc && terser dist/index.js -o dist/index.min.js --compress --mangle --source-map"
+  },
+  "xo": {
+    "space": true,
+    "rules": {
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/no-unsafe-return": "off"
+    },
+    "overrides": [
+      {
+        "files": ["test.jsx"],
+        "rules": {
+          "no-unused-vars": "off"
+        },
+        "envs": [
+          "jest"
+        ]
+      }
+    ]
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "testMatch": [
+      "**/?(*.)+(spec|test).[tj]s?(x)"
+    ],
+    "transform": {
+      "^.+\\.[tj]sx?$": "ts-jest"
+    }
+  },
+  "main": "dist/index.min.js",
+  "module": "dist/index.js",
+  "files": [
+    "README.md",
+    "dist/",
+    "package.json",
+    "index.ts",
+    "LICENSE"
+  ],
+  "author": "Vadim Isakov",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-env": "^7.25.8",
+    "@babel/preset-react": "^7.25.7",
+    "@testing-library/jest-dom": "^6.6.2",
+    "@testing-library/react": "^16.0.1",
+    "@types/jest": "^29.5.13",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "mutative": "^1.0.11",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-test-renderer": "^18.3.1",
+    "terser": "^5.36.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.3",
+    "xo": "^0.59.3",
+    "zustand": "^5.0.0"
+  }
+}
