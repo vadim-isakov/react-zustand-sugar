@@ -9,7 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: ./.github/workflows/setup
+    - uses: actions/checkout@v4
+    - uses: ./.github/workflows/setup.yml
     - run: bun run build
 
   test:
