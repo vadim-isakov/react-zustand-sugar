@@ -1,6 +1,17 @@
-# react-zustand-sugar – Cut Down ReactJS Re-renders with No Hassle
-
-> This library is syntactic sugar around zustand, helping you effortlessly avoid unnecessary re-renders.
+<p align="center">
+  <em>Syntactic sugar around zustand, helping you effortlessly avoid unnecessary re-renders.</em>
+</p>
+<p align="center">
+  <a href="https://github.com/vadim-isakov/react-zustand-sugar/actions/workflows/main.yml">
+    <img src="https://img.shields.io/github/actions/workflow/status/vadim-isakov/react-zustand-sugar/main.yml?branch=main" alt="Build Status">
+  </a>
+  <a href="https://bundlephobia.com/result?p=react-zustand-sugar">
+    <img src="https://img.shields.io/bundlephobia/minzip/react-zustand-sugar" alt="Build Size">
+  </a>
+  <a href="https://www.npmjs.com/package/react-zustand-sugar">
+    <img src="https://img.shields.io/npm/v/react-zustand-sugar" alt="Version">
+  </a>
+</p>
 
 ## Install
 This library requires the following packages to be installed:
@@ -112,37 +123,62 @@ const store = create({book: 0, toys: 0});
 ### API Documentation
 
 #### `store.setInitial(initialValues: Object)`
-Sets initial and current values for multiple keys.
-- Example: `store.setInitial({ books: 0, toys: 10 });`
+> Sets initial and current values for multiple keys.
+
+Example: `store.setInitial({ books: 0, toys: 10 });`
+
+---
 
 #### `store.setCurrent(currentValues: Object)`
-Sets current values for multiple keys.
-- Example: `store.setCurrent({ books: 5, toys: 2 });`
+> Sets current values for multiple keys.
+
+Example: `store.setCurrent({ books: 5, toys: 2 });`
+
+---
 
 #### `store.useResetOnUnmount()`
-Hook to reset values on unmount.
-- Example: `store.useResetOnUnmount();`
+> Hook to reset values on unmount.
+
+Example: `store.useResetOnUnmount();`
+
+---
 
 #### `store.reset()`
-Resets current values to their initial values.
-- Example: `store.reset();`
+> Resets current values to their initial values.
+
+Example: `store.reset();`
+
+---
 
 #### `store.yourValue`
-Accesses the current value of a specific store property.
-- Example: `const currentBooks = store.books;`
+> Accesses the current value of a specific store property.
+
+Example: `const currentBooks = store.books;`
+
+---
 
 #### `store.yourValue = value`
-Sets the current value of a specific store property.
-- Example: `store.books = 5;`
+> Sets the current value of a specific store property.
+
+Example: `store.books = 5;`
+
+---
 
 #### `store.yourValue.useCurrent(selector?: Function)`
-Hook to get the current value of a specific store property.
-- Example: `const currentBooks = store.books.useCurrent();`
+> Hook to get the current value of a specific store property.
+
+Example: `const currentBooks = store.books.useCurrent();`
+
+---
 
 #### `store.yourValue.setCurrent(updater: Function)`
-Sets the current value of a specific store property using an updater function.
-- Example: `store.books.setCurrent(books => books + 1);`
+> Sets the current value of a specific store property using an updater function.
+
+Example: `store.books.setCurrent(books => books + 1);`
+
+---
 
 #### `store.yourValue.reset()`
-Resets the current value of a specific store property to its initial value.
-- Example: `store.books.reset();`
+> Resets the current value of a specific store property to its initial value.
+
+Example: `store.books.reset();`
