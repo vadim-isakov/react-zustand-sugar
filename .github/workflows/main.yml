@@ -6,7 +6,7 @@ on:
   - workflow_dispatch
 
 jobs:
-  install:
+  setup:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -24,10 +24,14 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: install
+    needs: setup
     strategy:
       matrix:
         node-version: [20.x]
     steps:
     - uses: actions/checkout@v4
+    - uses: actions/cache@v4
+      with:
+        path: ~/.bun
+        key: bun-${{ matrix.node-version }}-${{ hashFiles('**/bun.lockb') }}
     - run: bun run test
