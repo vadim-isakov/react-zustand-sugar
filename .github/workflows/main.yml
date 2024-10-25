@@ -17,6 +17,7 @@ jobs:
         restore-keys: ${{ runner.os }}-bun-
     - uses: oven-sh/setup-bun@v2
     - run: bun install
+    - run: bun run test
 
   test:
     runs-on: ubuntu-latest
