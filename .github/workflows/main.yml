@@ -9,7 +9,8 @@ on:
 
 
 jobs:
-  uses: ./.github/workflows/setup.yml
+  build:
+    uses: ./.github/workflows/setup.yml
 
   test:
     runs-on: ubuntu-latest
