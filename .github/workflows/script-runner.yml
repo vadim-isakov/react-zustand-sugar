@@ -1,0 +1,17 @@
+name: Setup workflow
+
+on:
+  workflow_call:
+    inputs:
+      script_name:
+        required: true
+        type: string
+
+jobs:
+  run-task:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: oven-sh/setup-bun@v2
+    - run: bun install
+    - run: bun run ${{ inputs.script_name }
