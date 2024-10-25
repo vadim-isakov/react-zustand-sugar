@@ -20,7 +20,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: oven-sh/setup-bun@v2
-    - run: bun install
+    - uses: ./.github/actions/setup
+    - run: bun run test
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: ./.github/actions/setup
     - run: bun run test
     
