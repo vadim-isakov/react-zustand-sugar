@@ -12,7 +12,9 @@ jobs:
     - uses: actions/checkout@v4
     - uses: actions/cache@v4
       with:
-        path: ~/.bun
+        path: |
+          ~/.bun
+          /usr/local/bin/bun
         key: bun-${{ hashFiles('**/bun.lockb') }}
         restore-keys: |
           ${{ runner.os }}-bun-
