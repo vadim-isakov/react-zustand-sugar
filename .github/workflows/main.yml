@@ -23,4 +23,4 @@ jobs:
   lint:
     uses: ./.github/workflows/script-runner.yml
     with:
-      script_name: "ci"
+      script_name: "lint"
