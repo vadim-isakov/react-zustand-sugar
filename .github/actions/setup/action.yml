@@ -5,7 +5,6 @@ runs:
   steps:
     - uses: actions/checkout@v4
     - uses: oven-sh/setup-bun@v2
-    - name: Set Greeting
-      run: bun install
+    - run: bun install
       shell: bash
 
