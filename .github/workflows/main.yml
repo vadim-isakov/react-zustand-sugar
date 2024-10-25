@@ -9,10 +9,7 @@ on:
 
 
 jobs:
-  build:
-    uses: ./.github/actions/setup
-    steps:
-    - run: bun run build
+  uses: ./.github/workflows/setup.yml
 
   test:
     runs-on: ubuntu-latest
