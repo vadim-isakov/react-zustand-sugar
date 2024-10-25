@@ -1,14 +1,10 @@
-name: Setup workflow
+name: Setup action
 
 on:
   workflow_call:
-    inputs:
-      task:
-        required: true
-        type: string
 
 jobs:
-  run-task:
+  setup:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4

@@ -11,10 +11,8 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    uses: ./.github/actions/setup
     steps:
-    - uses: actions/checkout@v4
-    - uses: ./.github/workflows/setup
     - run: bun run build
 
   test:
