@@ -10,16 +10,6 @@ on:
     - main
 
 jobs:
-  build:
-    uses: ./.github/workflows/script-runner.yml
-    with:
-      script_name: "build"
-
-  test:
-    uses: ./.github/workflows/script-runner.yml
-    with:
-      script_name: "test"
-
   lint:
     uses: ./.github/workflows/script-runner.yml
     with:
