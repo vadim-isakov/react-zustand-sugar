@@ -1,0 +1,16 @@
+name: build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  build:
+    uses: ./.github/workflows/script-runner.yml
+    with:
+      script_name: "build"

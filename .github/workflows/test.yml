@@ -1,0 +1,16 @@
+name: test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  test:
+    uses: ./.github/workflows/script-runner.yml
+    with:
+      script_name: "test"
