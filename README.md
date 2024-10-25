@@ -1,16 +1,9 @@
+[![Build Status](https://img.shields.io/github/actions/workflow/status/vadim-isakov/react-zustand-sugar/main.yml?branch=main)](https://github.com/vadim-isakov/react-zustand-sugar/actions/workflows/main.yml)
+[![Build Size](https://img.shields.io/bundlephobia/minzip/react-zustand-sugar)](https://bundlephobia.com/result?p=react-zustand-sugar)
+[![Version](https://img.shields.io/npm/v/react-zustand-sugar)](https://www.npmjs.com/package/react-zustand-sugar)
+
 <p align="center">
   <em>Syntactic sugar around zustand, helping you effortlessly avoid unnecessary re-renders.</em>
-</p>
-<p align="center">
-  <a href="https://github.com/vadim-isakov/react-zustand-sugar/actions/workflows/main.yml">
-    <img src="https://img.shields.io/github/actions/workflow/status/vadim-isakov/react-zustand-sugar/main.yml?branch=main" alt="Build Status">
-  </a>
-  <a href="https://bundlephobia.com/result?p=react-zustand-sugar">
-    <img src="https://img.shields.io/bundlephobia/minzip/react-zustand-sugar" alt="Build Size">
-  </a>
-  <a href="https://www.npmjs.com/package/react-zustand-sugar">
-    <img src="https://img.shields.io/npm/v/react-zustand-sugar" alt="Version">
-  </a>
 </p>
 
 ## Install
