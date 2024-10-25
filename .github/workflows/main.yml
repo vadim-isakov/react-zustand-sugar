@@ -13,7 +13,7 @@ jobs:
     - uses: actions/cache@v4
       with:
         path: ~/.bun
-        key: bun-${{ matrix.node-version }}-${{ hashFiles('**/bun.lockb') }}
+        key: bun-${{ hashFiles('**/bun.lockb') }}
         restore-keys: |
           ${{ runner.os }}-bun-
     - uses: oven-sh/setup-bun@v2
@@ -24,8 +24,8 @@ jobs:
     needs: setup
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/cache@v4
+    - uses: actions/cache/restore@v4
       with:
         path: ~/.bun
-        key: bun-${{ matrix.node-version }}-${{ hashFiles('**/bun.lockb') }}
+        key: bun-${{ hashFiles('**/bun.lockb') }}
     - run: bun run test
