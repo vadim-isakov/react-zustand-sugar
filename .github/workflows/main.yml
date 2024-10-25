@@ -6,18 +6,13 @@ on:
   - workflow_dispatch
 
 jobs:
-  build:
+  main:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        task: [build, test]
     steps:
     - uses: actions/checkout@v4
     - uses: oven-sh/setup-bun@v2
     - run: bun install
-    - run: bun run build
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: oven-sh/setup-bun@v2
-    - run: bun install
-    - run: bun run test
+    - run: bun run ${{ matrix.task }}
