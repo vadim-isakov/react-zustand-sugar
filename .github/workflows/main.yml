@@ -6,17 +6,7 @@ on:
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x, 22.x]
-
     steps:
-    - uses: actions/checkout@v4
-    - uses: oven-sh/setup-bun@v2
-    - run: bun install
+    - uses: ./.github/workflows/common.yml
     - run: bun run test
-    - run: bun run xo
-    - run: bun run build
