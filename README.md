@@ -169,7 +169,7 @@ const { books } = store.useCurrent('books');
 
 Examples:
 ```jsx
-const totalItems = store.useSelector(store => store.book + store.toys);
+const totalItems = store.useSelector(state => state.book + state.toys);
 ```
 ```jsx
 const currentState = store.useSelector();
