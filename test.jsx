@@ -150,6 +150,53 @@ describe('store functionality', () => {
     expect(screen.getByText('Bears: 20')).toBeInTheDocument(); // Verify updated value
   });
 
+  test('useSelector global hook returns the correct value', () => {
+    // Component to test the useCurrent hook
+    store.setCurrent({bears: 5, lions: 10});
+    const TestComponent = () => {
+      const total = store.useSelector(state => state.bears + state.lions);
+      return <div>{`Total: ${total}`}</div>;
+    };
+
+    render(<TestComponent />);
+
+    // Verify the current value of bears is returned
+    expect(screen.getByText('Total: 15')).toBeInTheDocument();
+
+    // Use `act` to ensure that the update and re-render happen properly
+    act(() => {
+      store.bears.current = 20;
+      store.lions.current = 30;
+    });
+
+    // Re-render to reflect the new value in the component
+    expect(screen.getByText('Total: 50')).toBeInTheDocument(); // Verify updated value
+  });
+
+  test('useSelector global hook returns the correct value with default arg', () => {
+    // Component to test the useCurrent hook
+    store.setCurrent({bears: 5, lions: 10});
+    const TestComponent = () => {
+      const state = store.useSelector();
+      const total = Object.values(state).reduce((partialSum, a) => partialSum + a, 0);
+      return <div>{`Total: ${total}`}</div>;
+    };
+
+    render(<TestComponent />);
+
+    // Verify the current value of bears is returned
+    expect(screen.getByText('Total: 15')).toBeInTheDocument();
+
+    // Use `act` to ensure that the update and re-render happen properly
+    act(() => {
+      store.bears.current = 20;
+      store.lions.current = 30;
+    });
+
+    // Re-render to reflect the new value in the component
+    expect(screen.getByText('Total: 50')).toBeInTheDocument(); // Verify updated value
+  });
+
   test('dynamically adding new key and resetting it works', () => {
     // Dynamically set a new key in store
     store.setInitial({tigers: 4});

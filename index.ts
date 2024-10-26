@@ -55,6 +55,9 @@ export const create = (initialState: Record<string, any>) => {
         key, useStore(state => state.current[key]),
       ]));
     },
+    useSelector(selector: (v: any) => any = v => v) {
+      return useStore(state => selector(state.current));
+    },
     reset: resetMulti,
     useResetOnUnmount() {
       useEffect(() => () => {

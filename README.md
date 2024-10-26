@@ -141,6 +141,19 @@ Example: `const { books } = store.useCurrent('books');`
 
 ---
 
+#### `store.useSelector(selector: Function)`
+>  A hook to retrieve the values by using selector.
+
+Example: `const totalItems = store.useSelector(store => store.book + store.toys);`
+
+Example:
+```jsx
+const currentState = store.useSelector();
+const totalItems = currentState.books = currentState.toys;
+```
+
+---
+
 #### `store.useResetOnUnmount()`
 > Hook to reset values on unmount.
 
