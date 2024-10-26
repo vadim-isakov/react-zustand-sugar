@@ -1,5 +1,20 @@
 ### API Documentation
 
+  - [store.setInitial(initialValues: object)](#storesetinitialinitialvalues-object)
+  - [store.setCurrent(currentValues: object)](#storesetcurrentcurrentvalues-object)
+  - [store.getCurrent(...keys: string[])](#storegetcurrentkeys-string)
+  - [store.useCurrent(...keys: string[])](#storeusecurrentkeys-string)
+  - [store.useSelector(selector: function)](#storeuseselectorselector-function)
+  - [store.useResetOnUnmount()](#storeuseresetonunmount)
+  - [store.reset()](#storereset)
+  - [store.yourValue](#storeyourvalue)
+  - [store.yourValue = value](#storeyourvalue--value)
+  - [store.yourValue.useCurrent(selector?: function)](#storeyourvalueusecurrentselector-function)
+  - [store.yourValue.setCurrent(functionOrValue)](#storeyourvaluesetcurrentfunctionorvalue)
+  - [store.yourValue.reset()](#storeyourvaluereset)
+
+---
+
 #### `store.setInitial(initialValues: object)`
 > Sets initial and current values for multiple keys.
 
