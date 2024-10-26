@@ -38,6 +38,14 @@ export const create = (initialState: Record<string, any>) => {
     setCurrent(object: Record<string, any>) {
       useStore.getState().setValues('current', object);
     },
+    useCurrent(...keys: string[]) {
+      const responseKeys = (
+        keys.length > 0
+      ) ? keys : Object.keys(useStore.getState().current);
+      return Object.fromEntries(responseKeys.map((key: string) => [
+        key, useStore(state => state.current[key]),
+      ]));
+    },
     reset: resetMulti,
     useResetOnUnmount() {
       useEffect(() => () => {
@@ -72,10 +80,14 @@ export const create = (initialState: Record<string, any>) => {
         useCurrent: (selector: (v: any) => any = v => v) => (
           useStore(state => selector(state.current[key]))
         ),
-        setCurrent(mutativeFunction: (draft: any) => void) {
-          storeItem.current = createMutative(
-            useStore.getState().current[key], mutativeFunction,
-          );
+        setCurrent(functionOrValue: (draft: any) => void | any) {
+          if (typeof functionOrValue === 'function') {
+            storeItem.current = createMutative(
+              useStore.getState().current[key], functionOrValue,
+            );
+          } else {
+            storeItem.current = functionOrValue;
+          }
         },
         reset() {
           storeItem.current = storeItem.initial;

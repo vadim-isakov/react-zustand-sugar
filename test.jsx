@@ -97,10 +97,52 @@ describe('store functionality', () => {
     expect(screen.getByText('Bears: 20')).toBeInTheDocument(); // Verify updated value
   });
 
+  test('useCurrent global hook returns the correct current value', () => {
+    // Component to test the useCurrent hook
+    const TestComponent = () => {
+      const {bears} = store.useCurrent('bears'); // Use current value for bears
+      return <div>{`Bears: ${bears}`}</div>;
+    };
+
+    render(<TestComponent />);
+
+    // Verify the current value of bears is returned
+    expect(screen.getByText('Bears: 10')).toBeInTheDocument();
+
+    // Use `act` to ensure that the update and re-render happen properly
+    act(() => {
+      store.bears.current = 20; // Change the value of bears in the store
+    });
+
+    // Re-render to reflect the new value in the component
+    expect(screen.getByText('Bears: 20')).toBeInTheDocument(); // Verify updated value
+  });
+
+  test('useCurrent global hook returns the correct current value without args', () => {
+    // Component to test the useCurrent hook
+    const TestComponent = () => {
+      const {bears} = store.useCurrent(); // Use current value for bears
+      return <div>{`Bears: ${bears}`}</div>;
+    };
+
+    render(<TestComponent />);
+
+    // Verify the current value of bears is returned
+    expect(screen.getByText('Bears: 10')).toBeInTheDocument();
+
+    // Use `act` to ensure that the update and re-render happen properly
+    act(() => {
+      store.bears.current = 20; // Change the value of bears in the store
+    });
+
+    // Re-render to reflect the new value in the component
+    expect(screen.getByText('Bears: 20')).toBeInTheDocument(); // Verify updated value
+  });
+
   test('dynamically adding new key and resetting it works', () => {
     // Dynamically set a new key in store
     store.setInitial({tigers: 4});
-    store.setCurrent({tigers: 8});
+    store.tigers.setCurrent(8);
 
     // Assert initial and current values for tigers
     expect(store.tigers.initial).toBe(4);

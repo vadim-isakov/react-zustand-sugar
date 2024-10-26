@@ -132,6 +132,15 @@ Example: `store.setCurrent({ books: 5, toys: 2 });`
 
 ---
 
+#### `store.useCurrent(...keys: Array<string>)`
+>  A hook to retrieve the current values of specified properties. If no keys are provided, it returns values for all properties.
+
+Example: `const { books, toys } = store.useCurrent();`
+
+Example: `const { books } = store.useCurrent('books');`
+
+---
+
 #### `store.useResetOnUnmount()`
 > Hook to reset values on unmount.
 
@@ -165,12 +174,16 @@ Example: `store.books = 5;`
 
 Example: `const currentBooks = store.books.useCurrent();`
 
+Example: `const currentBooksExist = store.books.useCurrent(v => v > 0);`
+
 ---
 
-#### `store.yourValue.setCurrent(updater: Function)`
-> Sets the current value of a specific store property using an updater function.
+#### `store.yourValue.setCurrent(functionOrValue)`
+> Sets the current value of a specific store property. Accepts either a direct value to set or an updater function to modify the current value.
 
 Example: `store.books.setCurrent(books => books + 1);`
+
+Example: `store.books.setCurrent(2);`
 
 ---
 
