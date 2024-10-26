@@ -38,6 +38,15 @@ export const create = (initialState: Record<string, any>) => {
     setCurrent(object: Record<string, any>) {
       useStore.getState().setValues('current', object);
     },
+    getCurrent(...keys: string[]) {
+      const state = useStore.getState();
+      const responseKeys = (
+        keys.length > 0
+      ) ? keys : Object.keys(state.current);
+      return Object.fromEntries(responseKeys.map((key: string) => [
+        key, state.current[key],
+      ]));
+    },
     useCurrent(...keys: string[]) {
       const responseKeys = (
         keys.length > 0

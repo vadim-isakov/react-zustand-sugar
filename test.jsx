@@ -61,6 +61,17 @@ describe('store functionality', () => {
     expect(store.lions.current).toBe(3);
   });
 
+  test('getCurrent works correctly', () => {
+    const {bears, lions} = store.getCurrent();
+    expect(bears).toBe(10);
+    expect(lions).toBe(2);
+  });
+
+  test('getCurrent works correctly with specific keys', () => {
+    const {bears} = store.getCurrent('bears');
+    expect(bears).toBe(10);
+  });
+
   test('resetMulti correctly resets current values to initial', () => {
     // Perform a reset on both bears and lions
     store.reset(['bears', 'lions']);
