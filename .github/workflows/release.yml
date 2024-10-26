@@ -1,0 +1,11 @@
+name: release
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  release:
+    uses: ./.github/workflows/script-runner.yml
+    with:
+      script_name: "release"

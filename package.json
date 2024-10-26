@@ -1,6 +1,6 @@
 {
   "name": "react-zustand-sugar",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "author": "Vadim Isakov",
   "license": "MIT",
   "repository": {
@@ -17,8 +17,10 @@
     "test": "jest --env=jsdom",
     "test:coverage": "jest --env=jsdom --coverage --coverageReporters='text'",
     "test:coverage:save": "jest --env=jsdom --coverage --coverageDirectory='coverage'",
+    "test:full-coverage": "jest --env=jsdom --coverage --coverageThreshold='{\"global\": {\"lines\": 100, \"statements\": 100, \"functions\": 100, \"branches\": 100}}'",
     "lint": "xo",
-    "build": "tsc && terser dist/index.js -o dist/index.min.js --compress --mangle --source-map"
+    "build": "tsc && terser dist/index.js -o dist/index.min.js --compress --mangle --source-map",
+    "release": "npm run test:full-coverage && npm run lint && npm run build && npm publish --provenance"
   },
   "xo": {
     "space": true,
