@@ -118,35 +118,59 @@ const store = create({book: 0, toys: 0});
 ## API
 ### API Documentation
 
-#### `store.setInitial(initialValues: Object)`
+#### `store.setInitial(initialValues: object)`
 > Sets initial and current values for multiple keys.
 
-Example: `store.setInitial({ books: 0, toys: 10 });`
+Example:
+```jsx
+store.setInitial({ books: 0, toys: 10 });
+```
 
 ---
 
-#### `store.setCurrent(currentValues: Object)`
+#### `store.setCurrent(currentValues: object)`
 > Sets current values for multiple keys.
 
-Example: `store.setCurrent({ books: 5, toys: 2 });`
+Example:
+```jsx
+store.setCurrent({ books: 5, toys: 2 });
+```
 
 ---
 
-#### `store.useCurrent(...keys: Array<string>)`
+#### `store.getCurrent(...keys: string[])`
+>  Retrieves the current values of the specified keys. If no keys are provided, it returns all keys.
+
+Examples:
+```jsx
+const { books, toys } = store.getCurrent();
+```
+```jsx
+const { books, toys } = store.getCurrent('books', 'toys');
+```
+
+---
+
+#### `store.useCurrent(...keys: string[])`
 >  A hook to retrieve the current values of specified properties. If no keys are provided, it returns values for all properties.
 
-Example: `const { books, toys } = store.useCurrent();`
-
-Example: `const { books } = store.useCurrent('books');`
+Examples:
+```jsx
+const { books, toys } = store.useCurrent();
+```
+```jsx
+const { books } = store.useCurrent('books');
+```
 
 ---
 
-#### `store.useSelector(selector: Function)`
+#### `store.useSelector(selector: function)`
 >  A hook to retrieve the values by using selector.
 
-Example: `const totalItems = store.useSelector(store => store.book + store.toys);`
-
-Example:
+Examples:
+```jsx
+const totalItems = store.useSelector(store => store.book + store.toys);
+```
 ```jsx
 const currentState = store.useSelector();
 const totalItems = currentState.books = currentState.toys;
@@ -157,50 +181,73 @@ const totalItems = currentState.books = currentState.toys;
 #### `store.useResetOnUnmount()`
 > Hook to reset values on unmount.
 
-Example: `store.useResetOnUnmount();`
+Example:
+```jsx
+store.useResetOnUnmount();
+```
 
 ---
 
 #### `store.reset()`
 > Resets current values to their initial values.
 
-Example: `store.reset();`
+Example:
+```jsx
+store.reset();
+```
 
 ---
 
 #### `store.yourValue`
 > Accesses the current value of a specific store property.
 
-Example: `const currentBooks = store.books;`
+Example:
+```jsx
+const currentBooks = store.books;
+```
 
 ---
 
 #### `store.yourValue = value`
 > Sets the current value of a specific store property.
 
-Example: `store.books = 5;`
+Example:
+```jsx
+store.books = 5;
+```
 
 ---
 
-#### `store.yourValue.useCurrent(selector?: Function)`
+#### `store.yourValue.useCurrent(selector?: function)`
 > Hook to get the current value of a specific store property.
 
-Example: `const currentBooks = store.books.useCurrent();`
-
-Example: `const currentBooksExist = store.books.useCurrent(v => v > 0);`
+Examples:
+```jsx
+const currentBooks = store.books.useCurrent();
+```
+```jsx
+const currentBooksExist = store.books.useCurrent(v => v > 0);
+```
 
 ---
 
 #### `store.yourValue.setCurrent(functionOrValue)`
 > Sets the current value of a specific store property. Accepts either a direct value to set or an updater function to modify the current value.
 
-Example: `store.books.setCurrent(books => books + 1);`
-
-Example: `store.books.setCurrent(2);`
+Examples:
+```jsx
+store.books.setCurrent(books => books + 1);
+```
+```jsx
+store.books.setCurrent(2);
+```
 
 ---
 
 #### `store.yourValue.reset()`
 > Resets the current value of a specific store property to its initial value.
 
-Example: `store.books.reset();`
+Example:
+```jsx
+store.books.reset();
+```
