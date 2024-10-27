@@ -1,6 +1,7 @@
 [![build](https://github.com/vadim-isakov/react-zustand-sugar/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/vadim-isakov/react-zustand-sugar/actions/workflows/build.yml)
 [![test](https://github.com/vadim-isakov/react-zustand-sugar/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/vadim-isakov/react-zustand-sugar/actions/workflows/test.yml)
 [![lint](https://github.com/vadim-isakov/react-zustand-sugar/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/vadim-isakov/react-zustand-sugar/actions/workflows/lint.yml)
+[![install size](https://packagephobia.com/badge?p=react-zustand-sugar)](https://packagephobia.com/result?p=react-zustand-sugar)
 [![Build Size](https://img.shields.io/bundlephobia/minzip/react-zustand-sugar)](https://bundlephobia.com/result?p=react-zustand-sugar)
 [![Version](https://img.shields.io/npm/v/react-zustand-sugar)](https://www.npmjs.com/package/react-zustand-sugar)
 
