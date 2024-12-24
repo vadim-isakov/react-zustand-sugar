@@ -95,7 +95,9 @@ export const create = (initialState: Record<string, any>) => {
         setCurrent(functionOrValue: (draft: any) => void | any) {
           if (typeof functionOrValue === 'function') {
             storeItem.current = createMutative(
-              useStore.getState().current[key], functionOrValue,
+              useStore.getState().current[key], draft => {
+                functionOrValue(draft);
+              },
             );
           } else {
             storeItem.current = functionOrValue;
